@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine Art Details</title>
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <div class="car-detail" style="background-color: rgb(240, 207, 227);">
+        <h1 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Fine Arts</h1>
+        <div class="car-info">
+            <img src="images/pexels-jessica-lewis-thepaintedsquare-1652405.jpg" style="height: 500px;" alt="">
+            <div class="car-description">
+                <ul>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Ceramic Vase: Floral Harmony</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Artist: Emily White</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Size: 10" x 6"</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Price: 75,0000</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Medium: Handcrafted Ceramic</b></li>
+                    <!-- Additional car details -->
+                </ul>
+                <p>Painting as a fine art means applying paint to a flat surface (as opposed for example to painting a sculpture, or a piece of pottery), typically using several colours. Prehistoric painting that has survived was applied to natural rock surfaces, and wall painting, especially on wet plaster in the fresco technique was a major form until recently. Portable paintings on wood panel or canvas have been the most important in the Western world for several centuries, mostly in tempera or oil painting. Asian painting has more often used paper, with the monochrome ink and wash painting tradition dominant in East Asia. Paintings that are intended to go in a book or album are called "miniatures", whether for a Western illuminated manuscript or in Persian miniature and its Turkish equivalent, or Indian paintings of various types. Watercolour is the western version of painting in paper; forms using gouache, chalk, and similar mediums without brushes are really forms of drawing.</p>
+
+                <div style="text-align: center;">
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart" style="position: fixed; top: 10px; right: 10px;">
+        <img src="images/shopping-bag.svg" alt="Cart" id="cart-icon">
+        <div class="cart-count">0</div> <!-- Cart count added here -->
+        <div class="cart-dropdown">
+            <div class="cart-items"></div>
+            <div class="cart-total">Total: $90,00000</div>
+            <button class="delete-all-btn">Delete All</button>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>

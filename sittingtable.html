@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Details</title>
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <div class="car-detail" style="background-color: rgb(187, 170, 150);">
+        <h1 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Sitting Table Details</h1>
+        <div class="car-info">
+            <img src="images/pexels-dinning table.jpg" style="height: 500px;" alt="">
+            <div class="car-description">
+                <ul>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Wooden Sitting Table: "Rustic Charm"</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Manufacturer: Heritage Crafts</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Dimensions: 42" L x 22" W x 20" H</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Material: Reclaimed Oak Wood</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Color: Weathered Oak Finish</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Price: $1,200Price: $3,000</b></li>
+                    <!-- Additional car details -->
+                </ul>
+                <p style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">The "Rustic Charm" sitting table by Heritage Crafts is a beautifully crafted piece that brings the warmth and character of reclaimed oak wood into your home. The table features a weathered oak finish that highlights the natural grain and imperfections of the wood, giving it a distinctive rustic appeal. The sturdy construction and handcrafted details make it a durable and timeless addition to any space. Perfect for traditional or country-style interiors, this table can serve as a functional piece for seating areas or as a stylish surface for decorative items.
+
+                </p>
+
+                <br>
+
+                <div style="text-align: center;">
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart" style="position: fixed; top: 10px; right: 10px;">
+        <img src="images/shopping-bag.svg" alt="Cart" id="cart-icon">
+        <div class="cart-count">0</div> <!-- Cart count added here -->
+        <div class="cart-dropdown">
+            <div class="cart-items"></div>
+            <div class="cart-total">Total: $90,00000</div>
+            <button class="delete-all-btn">Delete All</button>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>

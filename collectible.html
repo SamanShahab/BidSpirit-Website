@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collectibles Details</title>
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <div class="car-detail" style="background-color: rgb(185, 221, 221);">
+        <h1 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Collectibles Details</h1>
+        <div class="car-info">
+            <img src="images/pexels-collectibles1.jpg" style="height: 500px; width: 550px; margin-right: 30px;" alt="">
+            <div class="car-description">
+                <ul>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Antique Porcelain Figurine: "The Dancer"</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Manufacturer: Meissen Porcelain</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Era: Late 19th Century (circa 1885)</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Dimensions: 12" H x 6" W x 6" D</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Material: Hand-Painted Porcelain</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Price: $5,000</b></li>
+                    <!-- Additional car details -->
+                </ul>
+                <p style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">"The Dancer" is a beautiful antique porcelain figurine crafted by Meissen, one of the oldest and most prestigious porcelain manufacturers in Europe. This figurine depicts a graceful ballerina mid-dance, captured with lifelike detail and fluidity. Hand-painted with vibrant colors and intricate patterns, the figurine showcases Meissen's renowned artistry and attention to detail. The delicate features and dynamic pose make it a captivating piece, perfect for collectors of fine porcelain and lovers of ballet.Ideal for collectors of fine timepieces, this watch is a symbol of timeless elegance and mechanical mastery.
+                </p>
+
+                <br>
+
+                <div style="text-align: center;">
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart" style="position: fixed; top: 10px; right: 10px;">
+        <img src="images/shopping-bag.svg" alt="Cart" id="cart-icon">
+        <div class="cart-count">0</div> <!-- Cart count added here -->
+        <div class="cart-dropdown">
+            <div class="cart-items"></div>
+            <div class="cart-total">Total: $90,00000</div>
+            <button class="delete-all-btn">Delete All</button>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>

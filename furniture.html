@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Furniture</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Wish shop project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="styles/product.css">
+	<link rel="stylesheet" type="text/css" href="styles/product_responsive.css">
+</head>
+
+<body>
+
+	<div class="super_container">
+
+		<!-- Header -->
+
+		<header class="header">
+			<div class="header_inner d-flex flex-row align-items-center justify-content-start">
+				<div class="logo"><a href="index.html">Bidspirit</a></div>
+				<nav class="main_nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="categories.html">Antiques</a></li>
+						<li><a href="checkout.html">Checkout</a></li>
+						<li><a href="cart.html">Check cart</a></li>
+						<li><a href="contact.html">Contact us</a></li>
+					</ul>
+				</nav>
+				<div class="header_content ml-auto">
+					<div class="search header_search">
+						<form action="#">
+							<input type="search" class="search_input" placeholder="search here">
+							<button type="submit" id="search_button" class="search_button"><img
+									src="images/magnifying-glass.svg" alt=""></button>
+						</form>
+					</div>
+					<div class="shopping">
+						<!-- Cart -->
+						<a href="#" id="cart-icon">
+							<div class="cart">
+								<img src="images/shopping-bag.svg" alt="">
+								<div class="cart_num_container">
+									<div class="cart_num_inner">
+										<div class="cart_num">0</div>
+									</div>
+								</div>
+							</div>
+						</a>
+						<div class="cart-dropdown" id="cart-dropdown">
+							<div class="cart-items"></div>
+							<div class="cart-total">
+								<strong>Total:</strong> <span class="total-price">$0.00</span>
+							</div>
+							<button id="clear-cart">Clear Cart</button>
+						</div>
+						<script src="styles/product.js"></script>
+						<!-- Star -->
+						<a href="#" id="star-link">
+							<div class="star">
+								<img src="images/star.svg" alt="Star Rating">
+								<div class="star_num_container">
+									<div class="star_num_inner">
+										<div class="star_num">0</div>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<!-- Enhanced Dropdown for Rating -->
+						<div id="rating-dropdown" class="rating-dropdown">
+							<div class="rating-option" data-rating="1">
+								<span>★</span> 1 Star
+							</div>
+							<div class="rating-option" data-rating="2">
+								<span>★★</span> 2 Stars
+							</div>
+							<div class="rating-option" data-rating="3">
+								<span>★★★</span> 3 Stars
+							</div>
+							<div class="rating-option" data-rating="4">
+								<span>★★★★</span> 4 Stars
+							</div>
+							<div class="rating-option" data-rating="5">
+								<span>★★★★★</span> 5 Stars
+							</div>
+						</div>
+
+
+
+						<script>
+							document.addEventListener('DOMContentLoaded', function () {
+								const starLink = document.getElementById('star-link');
+								const ratingDropdown = document.getElementById('rating-dropdown');
+								const starNum = document.querySelector('.star_num');
+								let selectedRating = null; // Track the selected rating
+
+								// Toggle dropdown visibility
+								starLink.addEventListener('click', function (event) {
+									event.preventDefault(); // Prevent default anchor behavior
+									const isVisible = ratingDropdown.style.display === 'block';
+									ratingDropdown.style.display = isVisible ? 'none' : 'block';
+								});
+
+								// Set rating on click
+								ratingDropdown.addEventListener('click', function (event) {
+									if (event.target.closest('.rating-option')) {
+										const ratingOption = event.target.closest('.rating-option');
+										const rating = ratingOption.getAttribute('data-rating');
+
+										// Toggle selection
+										if (selectedRating === rating) {
+											// Deselect if clicking the same rating
+											ratingOption.classList.remove('selected');
+											selectedRating = null;
+											starNum.textContent = '0'; // Reset star number
+										} else {
+											// Select new rating
+											document.querySelectorAll('.rating-option').forEach(option => option.classList.remove('selected'));
+											ratingOption.classList.add('selected');
+											selectedRating = rating;
+											starNum.textContent = rating; // Update the star number
+										}
+
+										ratingDropdown.style.display = 'none'; // Hide dropdown after selection
+									}
+								});
+
+								// Hide dropdown if clicked outside
+								document.addEventListener('click', function (event) {
+									if (!starLink.contains(event.target) && !ratingDropdown.contains(event.target)) {
+										ratingDropdown.style.display = 'none';
+									}
+								});
+							});
+						</script>
+
+						<!-- Avatar -->
+						<a href="subscriptionform.html">
+							<div class="avatar">
+								<img src="images/avatar.svg" alt="">
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="burger_container d-flex flex-column align-items-center justify-content-around menu_mm">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Menu -->
+
+		<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+			<div class="menu_close_container">
+				<div class="menu_close">
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="logo menu_mm"><a href="index.html">Bidspirit</a></div>
+			<div class="search">
+				<form action="#">
+					<input type="search" class="search_input menu_mm" placeholder="search here">
+					<button type="submit" id="search_button_menu" class="search_button menu_mm"
+						style="font-size: 20px;"> <img class="menu_mm" src="images/magnifying-glass.svg"
+							alt=""></button>
+				</form>
+			</div>
+			<nav class="menu_nav">
+				<ul class="menu_mm">
+					<li class="menu_mm"><a href="index.html">Home</a></li>
+					<li class="menu_mm"><a href="cart.html">Cart</a></li>
+					<li class="menu_mm"><a href="categories.html">Antiques</a></li>
+					<li class="menu_mm"><a href="feedback.html">Feedback</a></li>
+					<li class="menu_mm"><a href="contact.html">contact us</a></li>
+					<li class="menu_mm"><a href="aboutus.html">About us</a></li>
+					<li class="menu_mm"><a href="checkout.html">Checkout</a></li>
+
+				</ul>
+			</nav>
+		</div>
+
+		<!-- Home -->
+
+		<div class="home" style="height: 800px;width: 1600px;">
+			<div class="home_background parallax-window"
+				style="background-image: url(images/pexels-bedroom\ furniture.jpg); background-repeat: no-repeat;background-size: cover; "
+				data-parallax="scroll" data-image-src="images/pexels-bedroom\ furniture.jpg" data-speed="0.8"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_container">
+							<div class="home_content">
+								<div class="home_title" style="font-size: 100px;color: rgb(32, 1, 1);">Furniture</div>
+								<div class="breadcrumbs">
+									<ul>
+										<li style="font-size: 50px; color: rgb(150, 53, 0)"><a href="index.html"
+												style="font-size: 50px;color: rgb(150, 53, 0);">Home</a></li>
+										<li style="font-size: 50px;color: rgb(150, 53, 0);">Bedroom</li>
+										<li style="font-size: 50px;color: rgb(150, 53, 0);">Dinning Room</li>
+										<li style="font-size: 50px;color: rgb(150, 53, 0);">Hall</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Product -->
+
+		<div class="product">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="current_page">
+							<ul>
+								<li><a href="furniture.html">Bedroom furniture</a></li>
+								<li><a href="furniture.html">Dinning room furniture</a></li>
+								<li>Hall room furniture</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row product_row">
+
+					<!-- Product Image -->
+					<div class="col-lg-7">
+						<div class="product_image">
+							<div class="product_image_large"><a href="bedimg.html"><img
+										src="images/pexels-bed 1.jpg"></a></div>
+							<div
+								class="product_image_thumbnails d-flex flex-row align-items-start justify-content-start">
+								<a href="bedimg.html" class="product_image_thumbnail" data-item-id="1" data-item-price="250.00"
+									style="background-image:url(images/pexels-bed%201.jpg)"
+									data-image="images/pexels-bed%201.jpg"></a>
+								<a href="sofadetail.html" class="product_image_thumbnail" data-item-id="2" data-item-price="350.00"
+									style="background-image:url(images/pexels-couch.jpg)"
+									data-image="images/pexels-couch.jpg"></a>
+								<a href="tabledetail.html" class="product_image_thumbnail" data-item-id="3" data-item-price="150.00"
+									style="background-image:url(images/pexels-studytable.jpg)"
+									data-image="images/pexels-studytable.jpg"></a>
+							</div>
+						</div>
+					</div>
+
+					<!-- Product Content -->
+					<div class="col-lg-5">
+						<div class="product_content">
+							<div class="product_name">Home furniture</div>
+							<div class="product_price">$250.00</div>
+							<div class="rating rating_4" data-rating="4">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+							</div>
+							<!-- In Stock -->
+							<div class="in_stock_container">
+								<div class="in_stock in_stock_true"></div>
+								<span>In Stock</span>
+							</div>
+							<div class="product_text">
+								<p>Apart from being a place where you set meals, the table is also a workstation, study
+									table, sewing table, and other household tasks. Considering that the role of the
+									dining room table has evolved with time, it has become all the more necessary for
+									people to think of investing in this piece of furniture.</p>
+							</div>
+							<!-- Product Quantity -->
+							<div class="product_actions">
+								<label for="quantity_input">Quantity:</label>
+								<input type="number" id="quantity_input" value="1" min="1">
+
+								<!-- Product Size -->
+								<div class="product_size_container">
+									<span>Size</span>
+									<div class="product_size">
+										<ul class="d-flex flex-row align-items-start justify-content-start">
+											<li>
+												<input type="radio" id="radio_1" name="product_radio"
+													class="regular_radio radio_1">
+												<label for="radio_1">XS</label>
+											</li>
+											<li>
+												<input type="radio" id="radio_2" name="product_radio"
+													class="regular_radio radio_2" checked>
+												<label for="radio_2">S</label>
+											</li>
+											<li>
+												<input type="radio" id="radio_3" name="product_radio"
+													class="regular_radio radio_3">
+												<label for="radio_3">M</label>
+											</li>
+											<li>
+												<input type="radio" id="radio_4" name="product_radio"
+													class="regular_radio radio_4">
+												<label for="radio_4">L</label>
+											</li>
+											<li>
+												<input type="radio" id="radio_5" name="product_radio"
+													class="regular_radio radio_5">
+												<label for="radio_5">XL</label>
+											</li>
+										</ul>
+									</div><br><br>
+									<div class="parent-container">
+										<div class="cart_button">
+											<a href="#" id="add-to-cart">Add to Cart</a>
+										</div>
+									</div>
+
+									<!-- <div class="button cart_button"><a href="#">Add to cart</a></div> -->
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Reviews -->
+
+		<div class="row">
+			<div class="col">
+				<div class="reviews">
+					<div class="reviews_title">reviews</div>
+					<div class="reviews_container">
+						<ul>
+							<!-- Review -->
+							<li class=" review clearfix">
+								<div class="review_image"><img src="images/review_1.jpg" alt=""></div>
+								<div class="review_content">
+									<div class="review_name"><a href="aboutus.html">Maria Smith</a></div>
+									<div class="review_date">Jan 10, 2024</div>
+									<div class="rating rating_4 review_rating" data-rating="4">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div>
+									<div class="review_text">
+										<p>I got a bedroom from store bidspirit website and I’m very satisfied.
+											They are high-quality and worth the money. The online store also
+											offered free shipping at that price so that’sa plus!” </p>
+									</div>
+								</div>
+							</li>
+							<!-- Review -->
+							<li class=" review clearfix">
+								<div class="review_image"><img src="images/review_2.jpg" alt=""></div>
+								<div class="review_content">
+									<div class="review_name"><a href="aboutus.html">Maria Smith</a></div>
+									<div class="review_date">Jan 16, 2024</div>
+									<div class="rating rating_4 review_rating" data-rating="4">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+									</div>
+									<div class="review_text">
+										<p>I ordered a dinning table from Bidspirit website last week, and I was
+											amazed at how quickly it arrived. The packaging was secure, ensuring
+											the item was undamaged. The customer service was exceptional, as
+											they kept me updated throughout the entire process. I had a question
+											about the product, and their support team responded promptly and
+											professionally. Overall, my experience with your website is
+											outstanding, and I can’t wait for my next purchase.I genuinely
+											appreciate your efforts</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Leave a Review -->
+
+		<div class="row">
+			<div class="col">
+				<div class="review_form_content">
+					<form action="#" id="review_form" class="review_form" onsubmit="return validateForm()">
+						<div class="d-flex flex-md-row flex-column align-items-start justify-content-between">
+							<input type="text" class="review_form_input" placeholder="Name" required="required"
+								id="nameInput">
+							<input type="email" class="review_form_input" placeholder="E-mail" required="required">
+							<input type="text" class="review_form_input" placeholder="Subject">
+						</div>
+						<textarea class="review_form_text" name="review_form_text" placeholder="Message"></textarea>
+						<button type="submit" class="review_form_button">Submit</button>
+					</form>
+				</div>
+
+				<script>
+					function validateForm() {
+						var nameInput = document.getElementById("nameInput").value;
+						var namePattern = /^[a-zA-Z\s]+$/; // Only letters and spaces allowed
+
+						// Check if the Name field contains only letters and spaces
+						if (!namePattern.test(nameInput)) {
+							alert("Please enter a valid name without numbers.");
+							return false; // Prevent form submission
+						}
+
+						// If valid, show success alert
+						alert("Form submitted successfully!");
+						return true; // Allow form submission
+					}
+				</script>
+
+
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	<br>
+
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		<div class="newsletter_content">
+			<div class="newsletter_image" style="background-image:url(images/pexels-wall\ fine\ art.jpg)"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="section_title_container text-center">
+							<div class="section_subtitle">Only The Best</div>
+							<div class="section_title">Subscribe for a 20% Discount</div>
+						</div>
+					</div>
+				</div>
+				<div class="row newsletter_container">
+					<div class="col-lg-10 offset-lg-1">
+						<div class="newsletter_form_container">
+							<form action="#" onsubmit="return subscribeAlert()">
+								<input type="email" class="newsletter_input" required="required"
+									placeholder="E-mail here" id="emailInput">
+								<button type="submit" class="newsletter_button">Subscribe</button>
+							</form>
+						</div>
+
+						<script>
+							function subscribeAlert() {
+								var emailInput = document.getElementById("emailInput").value;
+
+								if (emailInput === "") {
+									return false; // Prevent form submission if the email is empty
+								} else {
+									alert("You have successfully subscribed!");
+									return true; // Allow form submission
+								}
+							}
+						</script>
+
+						<div class="newsletter_text"> You can get 20% discount by subscribing.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="footer_logo"><a href="index.html">Bidspirit</a></div>
+					<nav class="footer_nav">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="cart.html">check cart</a></li>
+							<li><a href="categories.html">Antiques</a></li>
+							<li><a href="aboutus.html">About us</a></li>
+							<li><a href="contact.html">contact us</a></li>
+							<li><a href="feedback.html">feedback</a></li>
+							<li><a href="checkout.html">checkout</a></li>
+
+
+						</ul>
+					</nav>
+					<div class="footer_social">
+						<ul>
+							<li><a href="https://www.pinterest.com/"><i class="fa fa-pinterest"
+										aria-hidden="true"></i></a></li>
+							<li><a href="https://pk.linkedin.com/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+							</li>
+							<li><a href="https://www.instagram.com/"><i class="fa fa-instagram"
+										aria-hidden="true"></i></a></li>
+							<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"
+										aria-hidden="true"></i></a></li>
+							<li><a href="https://www.youtube.com/"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+							</li>
+						</ul>
+					</div>
+					<div class="copyright">
+
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> All rights reserved | Made
+						<i class="fa fa-heart-o" aria-hidden="true"></i> by <a>Yusra and team</a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	</div>
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="styles/bootstrap4/popper.js"></script>
+	<script src="styles/bootstrap4/bootstrap.min.js"></script>
+	<script src="plugins/easing/easing.js"></script>
+	<script src="plugins/parallax-js-master/parallax.min.js"></script>
+	<script src="js/product_custom.js"></script>
+
+	<script src="furnCart.js"></script>
+</body>
+
+</html>

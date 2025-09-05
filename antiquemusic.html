@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antique Music Player Details</title>
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <div class="car-detail" style="background-color: rgb(170, 148, 122);">
+        <h1 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Antique Music Player Details</h1>
+        <div class="car-info">
+            <img src="images/pexels-antique music player.jpg" style="height: 500px; width: 550px; margin-right: 30px;" alt="">
+            <div class="car-description">
+                <ul>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Manufacturer: Victor Talking Machine Company</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Era: 1920s</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Dimensions: 36" W x 45" H x 22" D</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Material: Walnut Wood, Gold-Plated Accents</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Price: $4,500</b></li>
+                    <!-- Additional car details -->
+                </ul>
+                <p style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">The "Golden Age Console" by Victor Talking Machine Company is a luxurious Victrola from the 1920s, designed as a stunning piece of furniture as well as a high-quality music player. The console cabinet is made from exquisite walnut wood with gold-plated accents and ornate detailing. Inside, it houses a powerful motor and turntable for playing shellac records, along with built-in storage for record collections. The sound is channeled through the cabinet, producing a warm, full-bodied audio experience. This Victrola is ideal for those who appreciate the grandeur and sophistication of early 20th-century design combined with superior audio performance.
+                </p>
+
+                <br>
+
+                <div style="text-align: center;">
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart" style="position: fixed; top: 10px; right: 10px;">
+        <img src="images/shopping-bag.svg" alt="Cart" id="cart-icon">
+        <div class="cart-count">0</div> <!-- Cart count added here -->
+        <div class="cart-dropdown">
+            <div class="cart-items"></div>
+            <div class="cart-total">Total: $90,00000</div>
+            <button class="delete-all-btn">Delete All</button>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars Details</title>
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <div class="car-detail" style="background-color: rgb(193, 218, 223);">
+        <h1 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Car Details</h1>
+        <div class="car-info">
+            <img src="images/volkswagen-beetle-1200-2-1969-61673571.jpg" style="height: 500px;" alt="">
+            <div class="car-description">
+                <ul>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>S1965 Ford Mustang</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Manufacturer: Ford</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Model Year: 1965</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Dimensions: Length: 181.6 inches, Width: 68.2 inches, Height: 51.1 inches</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Engine: 289 cu in (4.7 L) V8Edition: Limited Edition of 25</b></li>
+                    <li style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><b>Price: $30,000</b></li>
+                    <!-- Additional car details -->
+                </ul>
+                <p style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">The 1965 Ford Mustang is an iconic American muscle car that embodies the spirit of the 1960s. With its distinctive long hood and short rear deck, the Mustang's design set a new standard for sports cars. The 289 V8 engine provides robust performance, delivering a thrilling driving experience with its powerful acceleration and classic V8 roar. This model features the original interior, complete with bucket seats and a stylish dashboard. The 1965 Mustang remains a symbol of freedom and performance, making it a highly sought-after classic car for enthusiasts and collectors alike.
+
+                </p>
+
+                <br>
+
+                <div style="text-align: center;">
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart" style="position: fixed; top: 10px; right: 10px;">
+        <img src="images/shopping-bag.svg" alt="Cart" id="cart-icon">
+        <div class="cart-count">0</div> <!-- Cart count added here -->
+        <div class="cart-dropdown">
+            <div class="cart-items"></div>
+            <div class="cart-total">Total: $90,00000</div>
+            <button class="delete-all-btn">Delete All</button>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>

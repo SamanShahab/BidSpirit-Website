@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title> index</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Wish shop project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+	<link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+	<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+</head>
+
+<body>
+
+	<div class="super_container">
+
+		<!-- Header -->
+
+		<header class="header">
+			<div class="header_inner d-flex flex-row align-items-center justify-content-start">
+				<div class="logo"><a href="index.html">Bidspirit</a></div>
+				<nav class="main_nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="furniture.html">Furniture</a></li>
+						<li><a href="categories.html">Antiques</a></li>
+						<li><a href="cart.html">Cart</a></li>
+						<li><a href="contact.html">Contact us</a></li>
+
+
+					</ul>
+				</nav>
+				<div class="header_content ml-auto">
+					<div class="search header_search">
+						<form action="#">
+							<input type="search" class="search_input" placeholder="search here">
+							<button type="submit" id="search_button" class="search_button"><img
+									src="images/magnifying-glass.svg" alt=""></button>
+						</form>
+					</div>
+					<div class="shopping">
+						<!-- Cart -->
+						<a href="#" class="cart-toggle">
+							<div class="cart">
+								<img src="images/shopping-bag.svg" alt="">
+								<div class="cart_num_container">
+									<div class="cart_num_inner">
+										<div class="cart_num">0</div>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<div class="cart-dropdown">
+							<div class="cart-items"></div>
+							<div class="cart-total">
+								<strong>Total:</strong> <span class="total-price">$0.00</span>
+							</div>
+						</div>
+						<!-- Star -->
+						<a href="#" id="star-link">
+							<div class="star">
+								<img src="images/star.svg" alt="Star Rating">
+								<div class="star_num_container">
+									<div class="star_num_inner">
+										<div class="star_num">0</div>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<!-- Enhanced Dropdown for Rating -->
+						<div id="rating-dropdown" class="rating-dropdown">
+							<div class="rating-option" data-rating="1">
+								<span>★</span> 1 Star
+							</div>
+							<div class="rating-option" data-rating="2">
+								<span>★★</span> 2 Stars
+							</div>
+							<div class="rating-option" data-rating="3">
+								<span>★★★</span> 3 Stars
+							</div>
+							<div class="rating-option" data-rating="4">
+								<span>★★★★</span> 4 Stars
+							</div>
+							<div class="rating-option" data-rating="5">
+								<span>★★★★★</span> 5 Stars
+							</div>
+						</div>
+
+
+
+						<script>
+							document.addEventListener('DOMContentLoaded', function () {
+								const starLink = document.getElementById('star-link');
+								const ratingDropdown = document.getElementById('rating-dropdown');
+								const starNum = document.querySelector('.star_num');
+								let selectedRating = null; // Track the selected rating
+
+								// Toggle dropdown visibility
+								starLink.addEventListener('click', function (event) {
+									event.preventDefault(); // Prevent default anchor behavior
+									const isVisible = ratingDropdown.style.display === 'block';
+									ratingDropdown.style.display = isVisible ? 'none' : 'block';
+								});
+
+								// Set rating on click
+								ratingDropdown.addEventListener('click', function (event) {
+									if (event.target.closest('.rating-option')) {
+										const ratingOption = event.target.closest('.rating-option');
+										const rating = ratingOption.getAttribute('data-rating');
+
+										// Toggle selection
+										if (selectedRating === rating) {
+											// Deselect if clicking the same rating
+											ratingOption.classList.remove('selected');
+											selectedRating = null;
+											starNum.textContent = '0'; // Reset star number
+										} else {
+											// Select new rating
+											document.querySelectorAll('.rating-option').forEach(option => option.classList.remove('selected'));
+											ratingOption.classList.add('selected');
+											selectedRating = rating;
+											starNum.textContent = rating; // Update the star number
+										}
+
+										ratingDropdown.style.display = 'none'; // Hide dropdown after selection
+									}
+								});
+
+								// Hide dropdown if clicked outside
+								document.addEventListener('click', function (event) {
+									if (!starLink.contains(event.target) && !ratingDropdown.contains(event.target)) {
+										ratingDropdown.style.display = 'none';
+									}
+								});
+							});
+						</script>
+
+							<!-- Avatar -->
+							<a href="subscriptionform.html">
+								<div class="avatar">
+									<img src="images/avatar.svg" alt="">
+								</div>
+							</a>
+						</div>
+					</div>
+
+						<div
+							class="burger_container d-flex flex-column align-items-center justify-content-around menu_mm">
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
+		</header>
+
+		<!-- Menu -->
+
+		<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+			<div class="menu_close_container">
+				<div class="menu_close">
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="logo menu_mm"><a href="index.html">Bidsprit</a></div>
+			<div class="search">
+				<form action="#">
+					<input type="search" class="search_input menu_mm" placeholder="search here">
+					<button type="submit" id="search_button_menu" class="search_button menu_mm"><img class="menu_mm"
+							src="images/magnifying-glass.svg" alt=""></button>
+				</form>
+			</div>
+			<nav class="menu_nav">
+				<ul class="menu_mm">
+					<li class="menu_mm"><a href="checkout.html">Checkout</a></li>
+					<li class="menu_mm"><a href="aboutus.html">About us</a></li>
+					<li class="menu_mm"><a href="cart.html">Cart</a></li>
+					<li class="menu_mm"><a href="feedback.html">Feedback</a></li>
+					<li class="menu_mm"><a href="furniture.html">Furniture</a></li>
+					<li class="menu_mm"><a href="categories.html">Antiques</a></li>
+					<li class="menu_mm"><a href="contact.html">Contact us</a></li>
+
+				</ul>
+			</nav>
+		</div>
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+<!-- Home -->
+
+<div class="home">
+
+	<!-- Home Slider -->
+
+	<div class="home_slider_container">
+		<div class="owl-carousel owl-theme home_slider">
+
+			<!-- Home Slider Item -->
+			<div class="owl-item">
+				<div class="home_slider_background" style="background-image:url(images/visual-art.jpg)"></div>
+				<div class="home_slider_content">
+					<div class="home_slider_content_inner">
+						<div class="home_slider_subtitle">Upcoming Auctions </div>
+						<div class="home_slider_title">New Collection</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Home Slider Item -->
+			<div class="owl-item">
+				<div class="home_slider_background"
+					style="background-image:url(images/pexelslady\ flower\ painting.jpg)"></div>
+				<div class="home_slider_content">
+					<div class="home_slider_content_inner">
+						<div class="home_slider_subtitle">Upcoming Auctions</div>
+						<div class="home_slider_title">New Collection</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Home Slider Item -->
+			<div class="owl-item">
+				<div class="home_slider_background" style="background-image:url(images/pexels-couch.jpg)"></div>
+				<div class="home_slider_content">
+					<div class="home_slider_content_inner">
+						<div class="home_slider_subtitle">Upcoming Auctions</div>
+						<div class="home_slider_title">New Collection</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Home Slider Nav -->
+
+		<div class="home_slider_next d-flex flex-column align-items-center justify-content-center"><img
+				src="images/arrow_r.png" alt=""></div>
+
+		<!-- Home Slider Dots -->
+
+		<div class="home_slider_dots_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_slider_dots">
+							<ul id="home_slider_custom_dots" class="home_slider_custom_dots">
+								<li class="home_slider_custom_dot active">01.<div></div>
+								</li>
+								<li class="home_slider_custom_dot">02.<div></div>
+								</li>
+								<li class="home_slider_custom_dot">03.<div></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Promo -->
+
+<div class="promo">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="section_title_container text-center">
+					<div class="section_subtitle">only the best</div>
+					<div class="section_title">Furnitures</div>
+				</div>
+			</div>
+		</div>
+		<div class="row promo_container">
+
+			<!-- Promo Item -->
+			<div class="col-lg-4 promo_col">
+				<div class="promo_item">
+					<div class="promo_image">
+						<img src="images/pexels-3 face sculpture.jpg" height="300px" alt="">
+						<div class="promo_content promo_content_1">
+							<div class="promo_title" style="color: black;">30% off</div>
+							<div class="promo_subtitle" style="color: black;">on all sculptures</div>
+						</div>
+					</div>
+					<div class="promo_link"><a href="categories.html">Buy Now</a></div>
+				</div>
+			</div>
+
+			<!-- Promo Item -->
+			<div class="col-lg-4 promo_col">
+				<div class="promo_item">
+					<div class="promo_image">
+						<img src="images/pexels-3 face paintings.jpg" height="300px" alt="">
+						<div class="promo_content promo_content_2">
+							<div class="promo_title">10% off</div>
+							<div class="promo_subtitle">On Paintings</div>
+						</div>
+					</div>
+					<div class="promo_link"><a href="categories.html">Buy Now</a></div>
+				</div>
+			</div>
+
+			<!-- Promo Item -->
+			<div class="col-lg-4 promo_col">
+				<div class="promo_item">
+					<div class="promo_image">
+						<img src="images/pexels-tea table.jpg" height="300px" ; size="cover" ; alt="">
+						<div class="promo_content promo_content_3" style="right: 15pxx;">
+							<div class="promo_title">Flat 25% off</div>
+							<div class="promo_subtitle">Furnitures</div>
+						</div>
+					</div>
+					<div class="promo_link"><a href="categories.html">Buy Now</a></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- New Arrivals -->
+
+<div class="arrivals">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="section_title_container text-center">
+					<div class="section_subtitle">only the best</div>
+					<div class="section_title">Collectibles</div>
+				</div>
+			</div>
+		</div>
+		<div class="row products_container">
+
+			<!-- Product -->
+			<div class="col-lg-4 product_col">
+				<div class="product">
+					<div class="product_image">
+						<a href="detailcar.html">
+							<img src="images/1986-Porsche-924S-edited.avif" style="height: 500px;" alt="">
+						</a>
+					</div>
+					<div class="rating rating_4">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+					</div>
+					<div class="product_content clearfix">
+						<div class="product_info">
+							<div class="product_name"><a href="categories.html">Old and Unique Cars</a></div>
+							<div class="product_price">$6000.00</div>
+						</div>
+						<div class="product_options">
+							<div class="product_buy product_option add-to-cart" data-product-id="1"
+								data-product-name="Old and Unique Cars" data-product-price="6000.00">
+								<img src="images/shopping-bag-white.svg" alt="">
+							</div>
+							<div class="product_fav product_option add-to-cart">+</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Product -->
+			<div class="col-lg-4 product_col">
+				<div class="product">
+					<div class="product_image">
+						<a href="detailpainting.html">
+							<img src="images/pexels-sergio-souza-5047453.jpg" style="height: 500px; width: 800px;"
+								alt="">
+						</a>
+					</div>
+					<div class="rating rating_4">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+					</div>
+					<div class="product_content clearfix">
+						<div class="product_info">
+							<div class="product_name"><a href="categories.html">unique paintings</a></div>
+							<div class="product_price">$80.00</div>
+						</div>
+						<div class="product_options">
+							<div class="product_buy product_option add-to-cart"><img src="images/shopping-bag-white.svg"
+									alt="">
+							</div>
+							<div class="product_fav product_option add-to-cart">+</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Product -->
+			<div class="col-lg-4 product_col">
+				<div class="product">
+					<div class="product_image">
+						<a href="fineartdetail.html">
+							<img src="images/pexels-jessica-lewis-thepaintedsquare-1652405.jpg" style="height: 500px;"
+								alt="">
+						</a>
+					</div>
+					<div class="rating rating_4">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+					</div>
+					<div class="product_content clearfix">
+						<div class="product_info">
+							<div class="product_name"><a href="categories.html">Fine arts</a></div>
+							<div class="product_price">$145.00</div>
+						</div>
+						<div class="product_options">
+							<div class="product_buy product_option add-to-cart"><img src="images/shopping-bag-white.svg"
+									alt="">
+							</div>
+							<div class="product_fav product_option add-to-cart">+</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script src="addtocart.js"></script>
+
+
+<!-- Extra -->
+
+<div class="extra clearfix">
+	<div class="extra_promo extra_promo_1">
+		<div class="extra_promo_image" style="background-image:url(images/pexels-dinning\ table.jpg  );"></div>
+		<div class="extra_1_content d-flex flex-column align-items-center justify-content-center text-center">
+			<div class="extra_1_price">Flat 25%<span>off</span></div>
+			<div class="extra_1_title">On Furnitures</div>
+			<div class="extra_1_text">The furniture sale brings you a perfect initiative to invest in pieces that are
+				jazzy, kooky and functional.</div>
+			<div class="button extra_1_button"><a href="furniture.html">check out</a></div>
+		</div>
+	</div>
+	<div class="extra_promo extra_promo_2">
+		<div class="extra_promo_image" style="background-image:url(images/pexels-studytable.jpg ); "></div>
+		<div class="extra_2_content d-flex flex-column align-items-center justify-content-center text-center">
+			<div class="extra_2_title">
+				<div class="extra_2_center">&</div>
+				<div class="extra_2_top">Mix</div>
+				<div class="extra_2_bottom">Match</div>
+			</div>
+			<div class="extra_2_text" style="color: black;font-style: italic;font-size: 20px;opacity: 1;">The furniture
+				sale brings you a perfect initiative to invest in pieces that are jazzy, kooky and functional.</div>
+			<div class="button extra_2_button"><a href="furniture.html">check out</a></div>
+		</div>
+	</div>
+</div>
+
+<!-- Gallery -->
+
+<div class="gallery">
+	<div class="gallery_image" style="background-image:url(images/gallery.jpg)"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="gallery_title text-center">
+					<ul>
+						<li><a href="#">#Bidsprit</a></li>
+						<li><a href="#">#Bidspiritinstagram</a></li>
+						<li><a href="#">#Bidspirit</a></li>
+					</ul>
+				</div>
+				<div class="gallery_text text-center"> Officail pages for elegant furnitures, beautifull and unique
+					paintings and as well as Antiques</div><br>
+				<div id="gallerySubmitButton" class="button gallery_button">Submit</div>
+
+				<script>document.getElementById('gallerySubmitButton').addEventListener('click', function () {
+						alert('You have successfully submitted!');
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+	<div class="gallery_slider_container">
+
+		<!-- Gallery Slider -->
+		<div class="owl-carousel owl-theme gallery_slider">
+
+			<!-- Gallery Item -->
+			<div class="owl-item gallery_item">
+				<a class="colorbox" href="images/pexels-3 face sculpture.jpg">
+					<img src="images/pexels-3 face sculpture.jpg" style="height: 300px; width: 200px;" alt="">
+				</a>
+			</div>
+
+			<!-- Gallery Item -->
+			<div class="owl-item gallery_item">
+				<a class="colorbox" href="images/pexels-antique music player.jpg">
+					<img src="images/pexels-antique music player.jpg" style="height: 300px; width: 200px;" alt="">
+				</a>
+			</div>
+
+			<!-- Gallery Item -->
+			<div class="owl-item gallery_item">
+				<a class="colorbox" href="images/pexels-antiques crockery.jpg">
+					<img src="images/pexels-antiques crockery.jpg" style="height: 300px; width: 200px;" alt="">
+				</a>
+			</div>
+
+			<!-- Gallery Item -->
+			<div class="owl-item gallery_item">
+				<a class="colorbox" href="images/pexels-fine arts.jpg">
+					<img src="images/pexels-fine arts.jpg" style="height: 300px; width: 200px;" alt="">
+				</a>
+			</div>
+
+			<!-- Gallery Item -->
+			<div class="owl-item gallery_item">
+				<a class="colorbox" href="images/pexels-furniture.jpg">
+					<img src="images/pexels-furniture.jpg" style="height: 300px; width: 200px;" alt="">
+				</a>
+			</div>
+
+			<!-- Gallery Item -->
+			<div class="owl-item gallery_item">
+				<a class="colorbox" href="images/1980-Nissan-280ZX-edited.avif">
+					<img src="images/1980-Nissan-280ZX-edited.avif" style="height: 300px; width: 200px;" alt="">
+				</a>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- Testimonials -->
+
+<div class="testimonials">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="section_title_container text-center">
+					<div class="section_subtitle">only the best</div>
+					<div class="section_title">testimonials</div>
+				</div>
+			</div>
+		</div>
+		<div class="row test_slider_container">
+			<div class="col">
+
+				<!-- Testimonials Slider -->
+				<div class="owl-carousel owl-theme test_slider text-center">
+
+					<!-- Testimonial Item -->
+					<div class="owl-item">
+						<div class="test_text">"I just wanted to share a quick note and let you know that you guys do a
+							really good job. I'm glad I decided to work with you. It's really great how easy your
+							websites are to update and manage. I never have any problem at all."" </div>
+						<div class="test_content">
+							<div class="test_image"><img src="images/testimonials.jpg" alt=""></div>
+							<div class="test_name">Christinne Smith</div>
+							<div class="test_title">Client</div>
+						</div>
+					</div>
+
+					<!-- Testimonial Item -->
+					<div class="owl-item">
+						<div class="test_text">I just wanted to share a quick note and let you know that you guys do a
+							really good job. I'm glad I decided to work with you. It's really great how easy your
+							websites are to update and manage. I never have any problem at all.</div>
+						<div class="test_content">
+							<div class="test_image"><img src="images/testimonials.jpg" alt=""></div>
+							<div class="test_name">Christinne Smith</div>
+							<div class="test_title">Client</div>
+						</div>
+					</div>
+
+					<!-- Testimonial Item -->
+					<div class="owl-item">
+						<div class="test_text">I just wanted to share a quick note and let you know that you guys do a
+							really good job. I'm glad I decided to work with you. It's really great how easy your
+							websites are to update and manage. I never have any problem at all.</div>
+						<div class="test_content">
+							<div class="test_image"><img src="images/testimonials.jpg" alt=""></div>
+							<div class="test_name">Christinne Smith</div>
+							<div class="test_title">client</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Newsletter -->
+
+<div class="newsletter">
+	<div class="newsletter_content" style="height: 100%;width: 100%; position: relative;">
+		<div class="newsletter_image" style="background-image:url(images/pexels-wall\ fine\ art.jpg);"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title_container text-center">
+						<div class="section_subtitle">only the best</div>
+						<div class="section_title">subscribe for a 20% discount</div>
+					</div>
+				</div>
+			</div>
+			<div class="row newsletter_container">
+				<div class="col-lg-10 offset-lg-1">
+					<div class="newsletter_form_container">
+						<form action="#" onsubmit="return subscribeAlert()">
+							<input type="email" class="newsletter_input" required="required" placeholder="E-mail here"
+								id="emailInput">
+							<button type="submit" class="newsletter_button">Subscribe</button>
+						</form>
+					</div>
+
+					<script>
+						function subscribeAlert() {
+							var emailInput = document.getElementById("emailInput").value;
+
+							if (emailInput === "") {
+								return false; // Prevent form submission if the email is empty
+							} else {
+								alert("You have successfully subscribed!");
+								return true; // Allow form submission
+							}
+						}
+					</script>
+
+					<div class="newsletter_text"> You can get 20% discount by subscribing.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Footer -->
+
+<footer class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col text-center">
+				<div class="footer_logo"><a href="index.html">Bidspirit</a></div>
+				<nav class="footer_nav">
+					<ul>
+						<li><a href="aboutus.html">about us</a></li>
+						<li><a href="checkout.html">checkout</a></li>
+						<li><a href="contact.html">contact us</a></li>
+						<li><a href="feedback.html">feedback</a></li>
+						<li><a href="cart.html">Cart</a></li>
+						<li><a href="furniture.html">furniture </a></li>
+						<li><a href="categories.html">Antiques</a></li>
+
+
+					</ul>
+				</nav>
+				<div class="footer_social">
+					<ul>
+						<li><a href="https://www.pinterest.com/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+						</li>
+						<li><a href="https://pk.linkedin.com/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+						</li>
+						<li><a href="https://www.instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+						</li>
+						<li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+						</li>
+						<li><a href="https://www.youtube.com/"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					Copyright &copy;
+					<script>document.write(new Date().getFullYear());</script> All rights reserved | Made <i
+						class="fa fa-heart-o" aria-hidden="true"></i> by <a>Yusra and team</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+</div>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="plugins/colorbox/jquery.colorbox-min.js"></script>
+<script src="js/custom.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>

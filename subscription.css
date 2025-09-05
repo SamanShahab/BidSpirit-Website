@@ -1,0 +1,85 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f9fc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.subscription-container {
+    background-color: #244047;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.subscription-container h1 {
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #e7e3e3;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.subscription-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.subscription-container input,
+.subscription-container textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.subscription-container input:focus,
+.subscription-container textarea:focus {
+    border-color: #4c93af;
+    outline: none;
+}
+
+.subscription-container button {
+    margin-top: 20px;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: black ;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscription-container button:hover {
+    background-color: #1c4657;
+}
+
+@media (min-width: 768px) {
+    .subscription-container {
+        padding: 40px;
+        width: 70%;
+        max-width: 500px;
+    }
+
+    .subscription-container button {
+        padding: 15px;
+        font-size: 18px;
+    }
+}

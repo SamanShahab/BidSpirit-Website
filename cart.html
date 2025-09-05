@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Cart</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Wish shop project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="styles/cart.css">
+	<link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
+</head>
+
+<body>
+
+	<div class="super_container">
+
+		<!-- Header -->
+
+		<header class="header">
+			<div class="header_inner d-flex flex-row align-items-center justify-content-start">
+				<div class="logo"><a href="index.html">Bidspirit</a></div>
+				<nav class="main_nav">
+					<ul>
+						<li><a href="index.html">home</a></li>
+						<li><a href="furniture.html">furniture</a></li>
+						<li><a href="categories.html">Antiques</a></li>
+						<li><a href="contact.html">contact us</a></li>
+						<li><a href="checkout.html">checkout</a></li>
+					</ul>
+				</nav>
+				<div class="header_content ml-auto">
+					<div class="search header_search">
+						<form action="#">
+							<input type="search" class="search_input" placeholder="search here">
+							<button type="submit" id="search_button" class="search_button"><img
+									src="images/magnifying-glass.svg" alt=""></button>
+						</form>
+					</div>
+					<div class="shopping">
+						<!-- Cart -->
+						<!-- Cart Logo with Dropdown -->
+						<a href="#" class="cart-toggle">
+							<div class="cart">
+								<img src="images/shopping-bag.svg" alt="" id="cartLogo">
+								<div class="cart_num_container">
+									<div class="cart_num_inner">
+										<div class="cart_num" id="cart_num">0</div>
+									</div>
+								</div>
+							</div>
+							<div class="cart-dropdown">
+								<ul id="cart-items-list">
+									<li class="empty-cart">Cart is empty</li>
+								</ul>
+							</div>
+						</a>
+						<!-- Star -->
+						<a href="#" id="star-link">
+							<div class="star">
+								<img src="images/star.svg" alt="Star Rating">
+								<div class="star_num_container">
+									<div class="star_num_inner">
+										<div class="star_num">0</div>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<!-- Enhanced Dropdown for Rating -->
+						<div id="rating-dropdown" class="rating-dropdown">
+							<div class="rating-option" data-rating="1">
+								<span>★</span> 1 Star
+							</div>
+							<div class="rating-option" data-rating="2">
+								<span>★★</span> 2 Stars
+							</div>
+							<div class="rating-option" data-rating="3">
+								<span>★★★</span> 3 Stars
+							</div>
+							<div class="rating-option" data-rating="4">
+								<span>★★★★</span> 4 Stars
+							</div>
+							<div class="rating-option" data-rating="5">
+								<span>★★★★★</span> 5 Stars
+							</div>
+						</div>
+
+
+
+						<script>
+							document.addEventListener('DOMContentLoaded', function () {
+								const starLink = document.getElementById('star-link');
+								const ratingDropdown = document.getElementById('rating-dropdown');
+								const starNum = document.querySelector('.star_num');
+								let selectedRating = null; // Track the selected rating
+
+								// Toggle dropdown visibility
+								starLink.addEventListener('click', function (event) {
+									event.preventDefault(); // Prevent default anchor behavior
+									const isVisible = ratingDropdown.style.display === 'block';
+									ratingDropdown.style.display = isVisible ? 'none' : 'block';
+								});
+
+								// Set rating on click
+								ratingDropdown.addEventListener('click', function (event) {
+									if (event.target.closest('.rating-option')) {
+										const ratingOption = event.target.closest('.rating-option');
+										const rating = ratingOption.getAttribute('data-rating');
+
+										// Toggle selection
+										if (selectedRating === rating) {
+											// Deselect if clicking the same rating
+											ratingOption.classList.remove('selected');
+											selectedRating = null;
+											starNum.textContent = '0'; // Reset star number
+										} else {
+											// Select new rating
+											document.querySelectorAll('.rating-option').forEach(option => option.classList.remove('selected'));
+											ratingOption.classList.add('selected');
+											selectedRating = rating;
+											starNum.textContent = rating; // Update the star number
+										}
+
+										ratingDropdown.style.display = 'none'; // Hide dropdown after selection
+									}
+								});
+
+								// Hide dropdown if clicked outside
+								document.addEventListener('click', function (event) {
+									if (!starLink.contains(event.target) && !ratingDropdown.contains(event.target)) {
+										ratingDropdown.style.display = 'none';
+									}
+								});
+							});
+						</script>
+
+
+						<!-- Avatar -->
+						<a href="subscriptionform.html">
+							<div class="avatar">
+								<img src="images/avatar.svg" alt="">
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="burger_container d-flex flex-column align-items-center justify-content-around menu_mm">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Menu -->
+
+		<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+			<div class="menu_close_container">
+				<div class="menu_close">
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="logo menu_mm"><a href="index.html">Bidspirit</a></div>
+			<div class="search">
+				<form action="#">
+					<input type="search" class="search_input menu_mm" placeholder="search here">
+					<button type="submit" id="search_button_menu" class="search_button menu_mm"><img class="menu_mm"
+							src="images/magnifying-glass.svg" alt=""></button>
+				</form>
+			</div>
+			<nav class="menu_nav">
+				<ul class="menu_mm">
+					<li class="menu_mm"><a href="index.html">Home</a></li>
+					<li class="menu_mm"><a href="furniture.html">furniture</a></li>
+					<li class="menu_mm"><a href="checkout.html">checkout</a></li>
+					<li class="menu_mm"><a href="categories.html">Antiques</a></li>
+					<li class="menu_mm"><a href="aboutus.html">about us</a></li>
+					<li class="menu_mm"><a href="feedback.html">feedback</a></li>
+					<li class="menu_mm"><a href="contact.html">Contact us</a></li>
+
+
+				</ul>
+			</nav>
+		</div>
+
+		<!-- Home -->
+
+		<div class="home">
+			<div class="home_background parallax-window"
+				style="background-image: url(images/pexels-lady\ fine\ arts.jpg);" data-parallax="scroll"
+				data-image-src="images/pexels-lady\ fine\ arts.jpg" data-speed="0.8"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_container">
+							<div class="home_content">
+								<div class="home_title" style="font-size: 100px;">Shopping Cart</div>
+								<div class="breadcrumbs">
+									<ul>
+										<li style="font-size: 50px;"><a href="index.html"
+												style="font-size: 50px;">Home</a></li>
+										<li style="font-size: 50px;">Shopping Cart</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Cart -->
+
+		<div class="cart_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="cart_title"  id="shopping">your shopping cart</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="cart_bar d-flex flex-row align-items-center justify-content-start"
+							style="background-color: midnightblue;">
+							<div class="cart_bar_title_name" style="color: white;">Product</div>
+							<div class="cart_bar_title_content ml-auto">
+								<div
+									class="cart_bar_title_content_inner d-flex flex-row align-items-center justify-content-end">
+									<div class="cart_bar_title_price" style="color: white;">Price</div>
+									<div class="cart_bar_title_quantity" style="color: white;">Quantity</div>
+									<div class="cart_bar_title_total" style="color: white;">Total</div>
+									<div class="cart_bar_title_button"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="cart_products">
+							<ul id="cartDropdownItems">
+								<li
+									class=" cart_product d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
+									<a href="sculptureimgpage.html"><img class="cart_product_image"
+											src="images/pexels-sculpture.jpg"></a>
+									<!-- Product Image -->
+									<div class="cart_product_image"><img src="" alt=""></div>
+									<!-- Product Name -->
+									<div class="cart_product_name"><a href="categories.html">Sculpture</a></div>
+									<div class="cart_product_info ml-auto">
+										<div
+											class="cart_product_info_inner d-flex flex-row align-items-center justify-content-md-end justify-content-start">
+											<!-- Product Price -->
+											<div class="cart_product_price">$145.00</div>
+											<!-- Product Quantity -->
+											<div class="product_quantity_container">
+												<div class="product_quantity clearfix">
+													<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+													<div class="quantity_buttons">
+														<div id="quantity_inc_button"
+															class="quantity_inc quantity_control"><i
+																class="fa fa-caret-up" aria-hidden="true"></i></div>
+														<div id="quantity_dec_button"
+															class="quantity_dec quantity_control"><i
+																class="fa fa-caret-down" aria-hidden="true"></i></div>
+													</div>
+												</div>
+											</div>
+											<!-- Products Total Price -->
+											<div class="cart_product_total">$145.00</div>
+											<!-- Product ADD To Cart Button -->
+											<div class="cart_product_button">
+												<button class="cart_product_add" data-item="Sculpture" data-price="$145.00"><img src="images/shopping-bag.svg"
+														alt=""></button>
+											</div>
+											<!-- Product Cart Trash Button -->
+											<div class="cart_product_button">
+												<button class="cart_product_remove" data-item="Sculpture"><img src="images/trash.png"
+														alt=""></button>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li
+									class=" cart_product d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
+									<a href="room.html"><img class="cart_product_image"
+											src="images/pexels-bedroom furniture.jpg"></a>
+									<!-- Product Image -->
+									<div class="cart_product_image"><img src="" alt=""></div>
+									<!-- Product Name -->
+									<div class="cart_product_name"><a href="categories.html">RoomFurniture</a></div>
+									<div class="cart_product_info ml-auto">
+										<div
+											class="cart_product_info_inner d-flex flex-row align-items-center justify-content-md-end justify-content-start">
+											<!-- Product Price -->
+											<div class="cart_product_price">$145.00</div>
+											<!-- Product Quantity -->
+											<div class="product_quantity_container">
+												<div class="product_quantity clearfix">
+													<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+													<div class="quantity_buttons">
+														<div id="quantity_inc_button"
+															class="quantity_inc quantity_control"><i
+																class="fa fa-caret-up" aria-hidden="true"></i></div>
+														<div id="quantity_dec_button"
+															class="quantity_dec quantity_control"><i
+																class="fa fa-caret-down" aria-hidden="true"></i></div>
+													</div>
+												</div>
+											</div>
+											<!-- Products Total Price -->
+											<div class="cart_product_total">$132.00</div>
+											<br><br><br>
+											<!-- Product ADD To Cart Button -->
+											<div class="cart_product_button">
+												<button class="cart_product_add" data-item="Bedroom Furniture" data-price="$132.00"><img src="images/shopping-bag.svg"
+														alt=""></button>
+											</div>
+											<!-- Product Cart Trash Button -->
+											<div class="cart_product_button">
+												<button class="cart_product_remove" data-item="Bedroom Furniture"><img src="images/trash.png"
+														alt=""></button>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li
+									class=" cart_product d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
+									<a href="dinningTable.html"><img class="cart_product_image"
+											src="images/pexels-dinning table.jpg"></a>
+									<!-- Product Image -->
+									<div class="cart_product_image"><img src="" alt=""></div>
+									<!-- Product Name -->
+									<div class="cart_product_name"><a href="categories.html">DinningTable</a></div>
+									<div class="cart_product_info ml-auto">
+										<div
+											class="cart_product_info_inner d-flex flex-row align-items-center justify-content-md-end justify-content-start">
+											<!-- Product Price -->
+											<div class="cart_product_price">$145.00</div>
+											<!-- Product Quantity -->
+											<div class="product_quantity_container">
+												<div class="product_quantity clearfix">
+													<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+													<div class="quantity_buttons">
+														<div id="quantity_inc_button"
+															class="quantity_inc quantity_control"><i
+																class="fa fa-caret-up" aria-hidden="true"></i></div>
+														<div id="quantity_dec_button"
+															class="quantity_dec quantity_control"><i
+																class="fa fa-caret-down" aria-hidden="true"></i></div>
+													</div>
+												</div>
+											</div>
+											<br>
+											<!-- Products Total Price -->
+											<div class="cart_product_total">$157.00</div>
+											<!-- Product Cart Trash Button -->
+											<div class="cart_product_button">
+												<button class="cart_product_add"  data-item="Dining Table" data-price="$157.00"><img src="images/shopping-bag.svg"
+														alt=""></button>
+											</div>
+											<!-- Product Cart Trash Button -->
+											<div class="cart_product_button">
+												<button class="cart_product_remove" data-item="Dining Table"><img src="images/trash.png"
+														alt=""></button>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<script>
+					// Get elements
+					const cartNumElement = document.querySelector('.cart_num');
+					const addToCartButton = document.querySelector('.cart_product_add');
+					const removeFromCartButton = document.querySelector('.cart_product_remove');
+
+					let cartItemCount = 0;
+
+					// Function to update cart number
+					function updateCartNum() {
+						cartNumElement.textContent = cartItemCount;
+					}
+
+					// Add to Cart button click event
+					addToCartButton.addEventListener('click', function () {
+						cartItemCount++;
+						updateCartNum();
+					});
+
+					// Remove from Cart button click event
+					removeFromCartButton.addEventListener('click', function () {
+						if (cartItemCount > 0) {
+							cartItemCount--;
+							updateCartNum();
+						}
+					});
+				</script>
+				<div class="row">
+					<div class="col">
+						<div
+							class="cart_control_bar d-flex flex-md-row flex-column align-items-start justify-content-start">
+							<button class="button_clear cart_button" id="clearCartButton">clear cart</button>
+							<button class="button_update cart_button" id="updateCartButton">update cart</button>
+							<button class="button_update cart_button_2 ml-md-auto"><a href="index.html"
+									style="color: black;" style="background-color: #937c6f;"> continue
+									shopping</a></button>
+						</div>
+					</div>
+				</div>
+					<script>
+						document.getElementById("clearCartButton").addEventListener("click", function () {
+							alert("Cart has been cleared!");
+						});
+
+						document.getElementById("updateCartButton").addEventListener("click", function () {
+							alert("Cart has been updated!");
+						});
+					</script>
+				
+				<div class="row cart_extra">
+					<!-- Cart Coupon -->
+					<div class="col-lg-6">
+						<div class="cart_coupon">
+							<div class="cart_title">coupon code</div>
+							<form action="#"
+								class="cart_coupon_form d-flex flex-row align-items-start justify-content-start"
+								id="cart_coupon_form">
+								<input type="text" class="cart_coupon_input" placeholder="Coupon code"
+									required="required">
+								<button class="button_clear cart_button_2">apply coupon</button>
+							</form>
+						</div>
+					</div>
+					<!-- Cart Total -->
+					<div class="col-lg-5 offset-lg-1">
+						<div class="cart_total">
+							<div class="cart_title">cart total</div>
+							<ul>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_total_title">Subtotal</div>
+									<div class="cart_total_price ml-auto">$145.00</div>
+								</li>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_total_title">Shipping</div>
+									<div class="cart_total_price ml-auto">$10.00</div>
+								</li>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_total_title">Total</div>
+									<div class="cart_total_price ml-auto">$155.00</div>
+								</li>
+							</ul>
+							<button class="cart_total_button"><a href="checkout.html" style="color: black;">proceed to
+									checkout</a></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Newsletter -->
+
+		<div class="newsletter">
+			<div class="newsletter_content">
+				<div class="newsletter_image parallax-window"
+					style="background-image: url(images/pexelslady\ flower\ painting.jpg);" data-parallax="scroll"
+					data-image-src="images/pexelslady\ flower\ painting.jpg" data-speed="0.8"></div>
+				<div class="container">
+					<div class="row options">
+
+						<!-- Options Item -->
+						<div class="col-lg-3">
+							<div class="options_item d-flex flex-row align-items-center justify-content-start">
+								<div class="option_image"><img src="images/option_1.png" alt=""></div>
+								<div class="option_content">
+									<div class="option_title">30 Days Returns</div>
+									<div class="option_subtitle">No questions asked</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Options Item -->
+						<div class="col-lg-3">
+							<div class="options_item d-flex flex-row align-items-center justify-content-start">
+								<div class="option_image"><img src="images/option_2.png" alt=""></div>
+								<div class="option_content">
+									<div class="option_title">Free Delivery</div>
+									<div class="option_subtitle">On all orders</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Options Item -->
+						<div class="col-lg-3">
+							<div class="options_item d-flex flex-row align-items-center justify-content-start">
+								<div class="option_image"><img src="images/option_3.png" alt=""></div>
+								<div class="option_content">
+									<div class="option_title">Secure Payments</div>
+									<div class="option_subtitle">No need to worry</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Options Item -->
+						<div class="col-lg-3">
+							<div class="options_item d-flex flex-row align-items-center justify-content-start">
+								<div class="option_image"><img src="images/option_4.png" alt=""></div>
+								<div class="option_content">
+									<div class="option_title">24/7 Support</div>
+									<div class="option_subtitle">Just call us</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="row newsletter_row">
+						<div class="col">
+							<div class="section_title_container text-center">
+								<div class="section_subtitle">only the best</div>
+								<div class="section_title">subscribe for a 20% discount</div>
+							</div>
+						</div>
+					</div>
+					<div class="row newsletter_container">
+						<div class="col-lg-10 offset-lg-1">
+							<div class="newsletter_form_container">
+								<form action="#" onsubmit="return subscribeAlert()">
+									<input type="email" class="newsletter_input" required="required"
+										placeholder="E-mail here" id="emailInput">
+									<button type="submit" class="newsletter_button">Subscribe</button>
+								</form>
+							</div>
+
+							<script>
+								function subscribeAlert() {
+									var emailInput = document.getElementById("emailInput").value;
+
+									if (emailInput === "") {
+										return false; // Prevent form submission if the email is empty
+									} else {
+										alert("You have successfully subscribed!");
+										return true; // Allow form submission
+									}
+								}
+							</script>
+
+							<div class="newsletter_text"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+
+		<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<div class="footer_logo"><a href="index.html">Bidspirit</a></div>
+						<nav class="footer_nav">
+							<ul>
+								<li><a href="index.html">home</a></li>
+								<li><a href="categories.html">categories</a></li>
+								<li><a href="furniture.html">furniture</a></li>
+								<li><a href="aboutus.html">about us</a></li>
+								<li><a href="checkout.html">checkout</a></li>
+								<li><a href="contact.html">contact us</a></li>
+								<li><a href="feedback.html">feedback</a></li>
+
+
+							</ul>
+						</nav>
+						<div class="footer_social">
+							<ul>
+								<li><a href="https://www.pinterest.com/"><i class="fa fa-pinterest"
+											aria-hidden="true"></i></a></li>
+								<li><a href="https://pk.linkedin.com/"><i class="fa fa-linkedin"
+											aria-hidden="true"></i></a></li>
+								<li><a href="https://www.instagram.com/"><i class="fa fa-instagram"
+											aria-hidden="true"></i></a></li>
+								<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"
+											aria-hidden="true"></i></a></li>
+								<li><a href="https://www.youtube.com/"><i class="fa fa-youtube"
+											aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+						<div class="copyright">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							Copyright &copy;
+							<script>document.write(new Date().getFullYear());</script> All rights reserved | Made <i
+								class="fa fa-heart-o" aria-hidden="true"></i> by <a>Yusra and team</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="styles/bootstrap4/popper.js"></script>
+	<script src="styles/bootstrap4/bootstrap.min.js"></script>
+	<script src="plugins/easing/easing.js"></script>
+	<script src="plugins/parallax-js-master/parallax.min.js"></script>
+	<script src="js/cart_custom.js"></script>
+</body>
+
+</html>

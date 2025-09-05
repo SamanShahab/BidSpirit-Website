@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+    <link rel="stylesheet" href="detail.css">
+</head>
+
+<body>
+    <div class="car-detail" style="background-color: rgb(223, 182, 168);">
+        <h1
+            style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+            Old and Unique Cars</h1>
+        <div class="car-info">
+            <img src="images/1986-Porsche-924S-edited.avif" style="height: 500px;" alt="">
+            <div class="car-description">
+                <ul>
+                    <li
+                        style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                        <b>Make: Porsche </b></li>
+                    <li
+                        style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                        <b>Model: Camry</b></li>
+                    <li
+                        style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                        <b>Year: 1966 Porsche 911</b></li>
+                    <li
+                        style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                        <b>Color: Red</b></li>
+                    <li
+                        style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                        <b>Mileage: 20,000 miles</b></li>
+                    <!-- Additional car details -->
+                </ul>
+                <p>
+                    Porsche Historical Background: 1948-2023
+                    In an age when most of its competitors have been absorbed into larger manufacturers, Porsche remains
+                    a staunchly — and profitably — independent maker of high-performance sportscars.
+
+
+                    The Porsche name has become synonymous with sports cars and racecars because that is what company
+                    founders Ferdinand Porsche and his son Ferdinand ("Ferry") set out to build when they first set up
+                    shop with 200 workers in 1948.
+
+                    Porsche introduced its own engines in the mid-1950s, along with more powerful versions of the 356.
+                    After the 356 came a true legend among modern automobiles, the Porsche 911. Ahead of its time when
+                    introduced in 1964, the rear-engine 911 evolved over three decades when Porsche introduced a
+                    completely new 911 Carrera for 1999. The lineage includes 911 S (1967), the 911 Turbo (1974 [1976 in
+                    the U.S.]), the first 911 Cabriolet (1983) and the first all-wheel drive 911 Carrera 4 (1990).</p>
+
+                    <div style="text-align: center;">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="cart" style="position: fixed; top: 10px; right: 10px;">
+            <img src="images/shopping-bag.svg" alt="Cart" id="cart-icon">
+            <div class="cart-count">0</div> <!-- Cart count added here -->
+            <div class="cart-dropdown">
+                <div class="cart-items"></div>
+                <div class="cart-total">Total: $90,00000</div>
+                <button class="delete-all-btn">Delete All</button>
+            </div>
+        </div>
+    
+        <script src="cart.js"></script>
+    </body>
+    </html>

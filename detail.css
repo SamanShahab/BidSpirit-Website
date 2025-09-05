@@ -1,0 +1,234 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0; /* Remove padding from the body */
+    height: 100vh; /* Ensure body takes full height of viewport */
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.car-detail {
+    width: 100%;
+    height: 100vh; /* Set div height to full viewport height */
+    padding: 20px;
+    margin: 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Add scroll if content overflows */
+}
+
+.car-detail h1 {
+    text-align: center;
+}
+
+.car-info {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allow items to wrap for smaller screens */
+}
+
+.car-info img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 20px;
+    margin-bottom: 20px; /* Add margin at the bottom for better spacing */
+}
+
+.car-description {
+    flex: 1;
+}
+
+.car-description p {
+    text-align: justify;
+}
+
+.car-description ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.car-description li {
+    padding: 5px 0;
+}
+
+.cart-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 300px;
+    z-index: 1000;
+}
+
+.cart-dropdown .cart-items {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.cart-dropdown .cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.cart-dropdown .cart-total {
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    font-weight: bold;
+}
+
+.cart-dropdown .checkout-btn {
+    display: block;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.cart:hover .cart-dropdown {
+    display: block;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.cart-item .delete-btn {
+    background-color: rgb(69, 145, 175);
+    color: whitesmoke;
+    border: none;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+
+/*Cart css*/
+.add-to-cart-btn {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #444;
+}
+
+.cart-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 300px;
+    z-index: 1000;
+}
+
+.cart-dropdown .cart-items {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.cart-dropdown .cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.cart-dropdown .cart-total {
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    font-weight: bold;
+}
+
+.cart-dropdown .checkout-btn {
+    display: block;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.cart:hover .cart-dropdown {
+    display: block;
+}
+.delete-all-btn {
+    display: block;
+    text-align: center;
+    background-color: whitesmoke;
+    color: #444;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.delete-all-btn:hover {
+    background-color: #050216;
+    color: #fff;
+}
+.cart {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: rgb(21, 22, 22);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    min-width: 20px;
+    text-align: center;
+}
+
+
+
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .car-info {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .car-info img {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Keep bottom margin */
+    }
+
+    .car-description {
+        width: 100%; /* Full width for description */
+    }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+    .car-detail {
+        padding: 10px;
+    }
+
+    .car-description p {
+        font-size: 14px; /* Reduce font size */
+    }
+}

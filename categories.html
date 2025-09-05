@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Categories</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Wish shop project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="styles/categories.css">
+	<link rel="stylesheet" type="text/css" href="styles/categories_responsive.css">
+</head>
+
+<body>
+
+	<div class="super_container">
+
+		<!-- Header -->
+
+		<header class="header">
+			<div class="header_inner d-flex flex-row align-items-center justify-content-start">
+				<div class="logo"><a href="index.html">Bidspirit </a></div>
+				<nav class="main_nav">
+					<ul>
+						<li><a href="index.html">home</a></li>
+						<li><a href="furniture.html">Furniture</a></li>
+						<li><a href="checkout.html">Checkout</a></li>
+						<li><a href="cart.html">check cart</a></li>
+						<li><a href="contact.html">contact</a></li>
+					</ul>
+				</nav>
+				<div class="header_content ml-auto">
+					<div class="search header_search">
+						<form action="#">
+							<input type="search" class="search_input" placeholder="search here">
+							<button type="submit" id="search_button" class="search_button"><img
+									src="images/magnifying-glass.svg" alt=""></button>
+						</form>
+					</div>
+					<div class="shopping">
+						<!-- Cart -->
+						<a href="#" class="cart-toggle">
+							<div class="cart">
+								<img src="images/shopping-bag.svg" alt="">
+								<div class="cart_num_container">
+									<div class="cart_num_inner">
+										<div class="cart_num">0</div>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						<div class="cart-dropdown">
+							<div class="cart-items"></div>
+							<div class="cart-total">
+								<strong>Total:</strong> <span class="total-price">$0.00</span>
+							</div>
+						</div>
+
+						<!-- Star -->
+						<a href="#" id="star-link">
+							<div class="star">
+								<img src="images/star.svg" alt="Star Rating">
+								<div class="star_num_container">
+									<div class="star_num_inner">
+										<div class="star_num">0</div>
+									</div>
+								</div>
+							</div>
+						</a>
+						
+						<!-- Enhanced Dropdown for Rating -->
+						<div id="rating-dropdown" class="rating-dropdown">
+							<div class="rating-option" data-rating="1">
+								<span>★</span> 1 Star
+							</div>
+							<div class="rating-option" data-rating="2">
+								<span>★★</span> 2 Stars
+							</div>
+							<div class="rating-option" data-rating="3">
+								<span>★★★</span> 3 Stars
+							</div>
+							<div class="rating-option" data-rating="4">
+								<span>★★★★</span> 4 Stars
+							</div>
+							<div class="rating-option" data-rating="5">
+								<span>★★★★★</span> 5 Stars
+							</div>
+						</div>
+						
+						
+
+						<script>
+							document.addEventListener('DOMContentLoaded', function() {
+								const starLink = document.getElementById('star-link');
+								const ratingDropdown = document.getElementById('rating-dropdown');
+								const starNum = document.querySelector('.star_num');
+								let selectedRating = null; // Track the selected rating
+						
+								// Toggle dropdown visibility
+								starLink.addEventListener('click', function(event) {
+									event.preventDefault(); // Prevent default anchor behavior
+									const isVisible = ratingDropdown.style.display === 'block';
+									ratingDropdown.style.display = isVisible ? 'none' : 'block';
+								});
+						
+								// Set rating on click
+								ratingDropdown.addEventListener('click', function(event) {
+									if (event.target.closest('.rating-option')) {
+										const ratingOption = event.target.closest('.rating-option');
+										const rating = ratingOption.getAttribute('data-rating');
+						
+										// Toggle selection
+										if (selectedRating === rating) {
+											// Deselect if clicking the same rating
+											ratingOption.classList.remove('selected');
+											selectedRating = null;
+											starNum.textContent = '0'; // Reset star number
+										} else {
+											// Select new rating
+											document.querySelectorAll('.rating-option').forEach(option => option.classList.remove('selected'));
+											ratingOption.classList.add('selected');
+											selectedRating = rating;
+											starNum.textContent = rating; // Update the star number
+										}
+						
+										ratingDropdown.style.display = 'none'; // Hide dropdown after selection
+									}
+								});
+						
+								// Hide dropdown if clicked outside
+								document.addEventListener('click', function(event) {
+									if (!starLink.contains(event.target) && !ratingDropdown.contains(event.target)) {
+										ratingDropdown.style.display = 'none';
+									}
+								});
+							});
+						</script>
+						
+						
+						<!-- Avatar -->
+						<a href="subscriptionform.html">
+							<div class="avatar">
+								<img src="images/avatar.svg" alt="">
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="burger_container d-flex flex-column align-items-center justify-content-around menu_mm">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Menu -->
+
+		<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+			<div class="menu_close_container">
+				<div class="menu_close">
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div class="logo menu_mm"><a href="index.html">Bidspirit</a></div>
+			<div class="search">
+				<form action="#">
+					<input type="search" class="search_input menu_mm" placeholder="search here">
+					<button type="submit" id="search_button_menu" class="search_button menu_mm"><img class="menu_mm"
+							src="images/magnifying-glass.svg" alt=""></button>
+				</form>
+			</div>
+			<nav class="menu_nav">
+				<ul class="menu_mm">
+					<li class="menu_mm"><a href="index.html">Home</a></li>
+					<li class="menu_mm"><a href="cart.html">check cart </a></li>
+					<li class="menu_mm"><a href="checkout.html">check out</a></li>
+					<li class="menu_mm"><a href="feedback.html">feedback</a></li>
+					<li class="menu_mm"><a href="contact.html">contact</a></li>
+					<li class="menu_mm"><a href="aboutus.html">Checkout</a></li>
+					<li class="menu_mm"><a href="furniture.html">Furniture</a></li>
+
+
+				</ul>
+			</nav>
+		</div>
+
+		<!-- Home -->
+
+		<div class="home">
+			<div class="home_background parallax-window" data-parallax="scroll"
+				style="background-image: url(images/pexels-lion\ sculpture.jpg );background-size: cover;"
+				data-image-src="images/pexels-lion\ sculpture.jpg" data-speed="0.8"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_container">
+							<div class="home_content">
+								<div class="home_title" style="color: rgb(255, 255, 255);font-size: 80px;">Antiques
+								</div>
+								<div class="breadcrumbs">
+									<ul>
+										<li style="color: #ffffff;font-size: 30px;"><a href="index.html"
+												style="color:#ffffff; font-size: 30px;">Home</a></li>
+										<li style="color: #ffffff; font-size: 30px;">paintings</li>
+										<li style="color: #ffffff;font-size: 30px;">sculptures</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Products -->
+
+		<div class="products">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+
+						<!-- Sidebar Left -->
+
+						<div class="sidebar_left clearfix">
+
+							<!-- Categories -->
+							<div class="sidebar_section">
+								<div class="sidebar_title">Categories</div>
+								<div class="sidebar_section_content">
+									<ul>
+										<li><a href="#"> Paintings</a></li>
+										<li><a href="#"> Sculpture</a></li>
+										<li><a href="furniture.html"> Furnitures</a></li>
+										<li><a href="#">Antique arts</a></li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Color -->
+							<div class="sidebar_section">
+								<div class="sidebar_title">Theme colors</div>
+								<div class="sidebar_section_content sidebar_color_content mCustomScrollbar"
+									data-mcs-theme="minimal-dark">
+									<ul>
+										<li><a href="#"><span style="background:#492300"></span>Brown</a></li>
+										<li><a href="#"><span style="background:#663011"></span>Brown (hazel)</a></li>
+										<li><a href="#"><span style="background:#5d3712"></span>Horse brown </a></li>
+										<li><a href="#"><span style="background:#4c4947"></span>Gray </a></li>
+										<li><a href="#"><span style="background:#0c023f"></span>Midnight blue</a></li>
+										<li><a href="#"><span style="background:#750208"></span>Red </a></li>
+										<li><a href="#"><span style="background:#3c0235"></span>Blueviolet </a></li>
+										<li><a href="#"><span style="background:#7b032f"></span>Crimson pink</a></li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Size -->
+							<div class="sidebar_section">
+								<div class="sidebar_title">Size</div>
+								<div class="sidebar_section_content">
+									<ul>
+										<li><a href="#">Small (s)</a></li>
+										<li><a href="#">Medium (M)</a></li>
+										<li><a href="#">Large (L)</a></li>
+										<li><a href="#">Extra Large (XL)</a></li>
+										<li><a href="#">Extra Large (XXL)</a></li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Price -->
+							<div class="sidebar_section">
+								<div class="sidebar_title">Price</div>
+								<div class="sidebar_section_content">
+									<div class="filter_price">
+										<div id="slider-range" class="slider_range"></div>
+										<p><input type="text" id="amount" class="amount" readonly
+												style="border:0; font-weight:bold;"></p>
+										<div class="clear_price_btn" onclick="clearPrice()">Clear Price</div>
+									</div>
+								</div>
+							</div>
+
+							<script>
+								var originalPrice = ""; // To store the original price
+
+								// Function to set the original price when the page loads
+								window.onload = function () {
+									originalPrice = document.getElementById("amount").value;
+								};
+
+								function clearPrice() {
+									var currentPrice = document.getElementById("amount").value;
+
+									// Check if the price has been adjusted (i.e., it's different from the original)
+									if (currentPrice !== originalPrice) {
+										// Clear the price
+										document.getElementById("amount").value = "";
+
+										// Show the alert after clearing the price
+										alert("You have cleared the price!");
+									}
+								}
+							</script>
+
+
+							<!-- Best Sellers
+
+							<div class="sidebar_section">
+								<div class="sidebar_title">Best Sellers</div>
+								<div class="sidebar_section_content bestsellers_content">
+									<ul>
+										Best Seller Item
+										<li class="clearfix">
+											<div class="best_image"><img src="images/best_1.jpg" alt=""></div>
+											<div class="best_content">
+												<div class="best_title"><a href="product.html">Set of 3 Faces Sculpture</a>
+												</div>
+												<div class="best_price">$45</div>
+											</div>
+											<div class="best_buy">+</div>
+										</li>
+
+										Best Seller Item
+										<li class="clearfix">
+											<div class="best_image"><img src="images/best_2.jpg" alt=""></div>
+											<div class="best_content">
+												<div class="best_title"><a href="product.html">White t-shirt</a></div>
+												<div class="best_price">$45</div>
+											</div>
+											<div class="best_buy">+</div>
+										</li>
+
+										Best Seller Item
+										<li class="clearfix">
+											<div class="best_image"><img src="images/best_3.jpg" alt=""></div>
+											<div class="best_content">
+												<div class="best_title"><a href="product.html">Blue dress with dots</a>
+												</div>
+												<div class="best_price">$45</div>
+											</div>
+											<div class="best_buy">+</div>
+										</li>
+
+										Best Seller Item
+										<li class="clearfix">
+											<div class="best_image"><img src="images/best_4.jpg" alt=""></div>
+											<div class="best_content">
+												<div class="best_title"><a href="product.html">White t-shirt</a></div>
+												<div class="best_price">$45</div>
+											</div>
+											<div class="best_buy">+</div>
+										</li>
+
+									</ul>
+								</div>
+							</div> -->
+
+							<!-- Size -->
+							<div class="sidebar_section sidebar_options">
+								<div class="sidebar_section_content">
+
+									<!-- Option Item -->
+									<div class="sidebar_option d-flex flex-row align-items-center justify-content-start"
+										style="background-color: saddlebrown;">
+										<div class="option_image"><img src="images/option_1.png" alt=""></div>
+										<div class="option_content">
+											<div class="option_title" style="color: white;">30 Days Returns</div>
+											<div class="option_subtitle" style="color: white;">No questions asked</div>
+										</div>
+									</div>
+
+									<!-- Option Item -->
+									<div class="sidebar_option d-flex flex-row align-items-center justify-content-start"
+										style="background-color: saddlebrown;">
+										<div class="option_image"><img src="images/option_2.png" alt=""></div>
+										<div class="option_content">
+											<div class="option_title" style="color: white;">Free Delivery</div>
+											<div class="option_subtitle" style="color: white;">On all orders</div>
+										</div>
+									</div>
+
+									<!-- Option Item -->
+									<div class="sidebar_option d-flex flex-row align-items-center justify-content-start"
+										style="background-color: saddlebrown;">
+										<div class="option_image"><img src="images/option_3.png" alt=""></div>
+										<div class="option_content">
+											<div class="option_title" style="color: white;">Secure Payments</div>
+											<div class="option_subtitle" style="color: white;">No need to worry</div>
+										</div>
+									</div>
+
+									<!-- Option Item -->
+									<div class="sidebar_option d-flex flex-row align-items-center justify-content-start"
+										style="background-color: saddlebrown;">
+										<div class="option_image"><img src="images/option_4.png" alt=""></div>
+										<div class="option_content">
+											<div class="option_title" style="color: white;">24/7 Support</div>
+											<div class="option_subtitle" style="color: white;">Just call us</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+
+						<div class="current_page">categories</div>
+					</div>
+					<div class="col-12">
+						<div class="product_sorting clearfix">
+							<div class="view">
+								<div class="view_box box_view"><i class="fa fa-th-large" aria-hidden="true"></i></div>
+								<div class="view_box detail_view"><i class="fa fa-bars" aria-hidden="true"></i></div>
+							</div>
+							<div class="sorting">
+								<ul class="item_sorting">
+									<li>
+										<span class="sorting_text">Show all</span>
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+										<ul>
+											<li class="product_sorting_btn"
+												data-isotope-option='{ "sortBy": "original-order" }'><span>Show
+													All</span></li>
+											<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "price" }'>
+												<span>Price</span>
+											</li>
+											<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "stars" }'>
+												<span>Stars</span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="sorting_text">Show</span>
+										<span class="num_sorting_text">12</span>
+										<i class="fa fa-caret-down" aria-hidden="true"></i>
+										<ul>
+											<li class="num_sorting_btn"><span>3</span></li>
+											<li class="num_sorting_btn"><span>6</span></li>
+											<li class="num_sorting_btn"><span>12</span></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row products_container">
+					<div class="col">
+
+						<!-- Products -->
+
+						<div class="product_grid">
+
+							<!-- Product -->
+							<div class="product">
+								<div class="product_image"><a href="3facepaint.html"><img
+											src="images/pexels-3 face paintings.jpg" height="500px" width="800px"></a>
+								</div>
+								<div class="rating rating_4" data-rating="4">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<div class="product_content clearfix">
+									<div class="product_info">
+										<div class="product_name"><a href="furniture.html">3 Faces paintings</a></div>
+										<div class="product_price">$95.00</div>
+									</div>
+									<div class="product_options">
+										<div class="product_buy product_option add-to-cart"><img
+												src="images/shopping-bag-white.svg" alt=""></div>
+										<div class="product_fav product_option add-to-cart" >+</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Product -->
+							<div class="product">
+								<div class="product_image">
+									<a href="oldcar.html"><img src="images/volkswagen-beetle-1200-2-1969-61673571.jpg"
+											height="500px" width="800px"></a>
+								</div>
+								<div class="rating rating_5" data-rating="5">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<div class="product_content clearfix">
+									<div class="product_info">
+										<div class="product_name"><a href="categories.html">old unique car</a></div>
+										<div class="product_price">$3500.00</div>
+									</div>
+									<div class="product_options">
+										<div class="product_buy product_option add-to-cart"><img
+												src="images/shopping-bag-white.svg" alt="Add to Cart"></div>
+										<div class="product_fav product_option add-to-cart">+</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Product -->
+							<div class="product">
+								<div class="product_image"><a href="antiqueset.html"><img
+											src="images/pexels-antiques crockery.jpg" height="500px" width="800px"
+											alt=""></a></div>
+								<div class="rating rating_3" data-rating="3">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<div class="product_content clearfix">
+									<div class="product_info">
+										<div class="product_name"><a href="categories.html">Antique Crockery Set</a>
+										</div>
+										<div class="product_price">$145.00</div>
+									</div>
+									<div class="product_options">
+										<div class="product_buy product_option add-to-cart"><img src="images/shopping-bag-white.svg"
+												alt=""></div>
+										<div class="product_fav product_option add-to-cart">+</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Product -->
+							<div class="product">
+								<div class="product_image"><a href="3facesculpture.html"><img
+											src="images/pexels-3 face sculpture.jpg" height="500px" width="800px"></a>
+								</div>
+								<div class="rating rating_3" data-rating="3">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<div class="product_content clearfix">
+									<div class="product_info">
+										<div class="product_name"><a href="index.html">3 Faced Sculpture</a></div>
+										<div class="product_price">$195.00</div>
+									</div>
+									<div class="product_options">
+										<div class="product_buy product_option add-to-cart"><img src="images/shopping-bag-white.svg"
+												alt=""></div>
+										<div class="product_fav product_option add-to-cart">+</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Product -->
+							<div class="product">
+								<div class="product_image"><a href="kingsizebed.html"><img src="images/pexels-bed 2.jpg"
+											height="500px" width="1000px" alt=""></a></div>
+								<div class="rating rating_3" data-rating="3">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<div class="product_content clearfix">
+									<div class="product_info">
+										<div class="product_name"><a href="furniture.html">King Size Bed</a></div>
+										<div class="product_price">$135.00</div>
+									</div>
+									<div class="product_options">
+										<div class="product_buy product_option add-to-cart"><img src="images/shopping-bag-white.svg"
+												alt=""></div>
+										<div class="product_fav product_option add-to-cart">+</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Product -->
+							<div class="product">
+								<div class="product_image"><a href="sittingtable.html"><img
+											src="images/pexels-dinning table.jpg" height="500px" width="800px"
+											alt=""></a></div>
+								<div class="rating rating_3" data-rating="3">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<div class="product_content clearfix">
+									<div class="product_info">
+										<div class="product_name"><a href="furniture.html">Sitting Table</a></div>
+										<div class="product_price">$155.00</div>
+									</div>
+									<div class="product_options">
+										<div class="product_buy product_option add-to-cart"><img src="images/shopping-bag-white.svg"
+												alt=""></div>
+										<div class="product_fav product_option add-to-cart">+</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Product -->
+							<div class="product">
+								<div class="product_image"><a href="finearts.html"><img
+											src="images/pexels-lady fine arts.jpg" height="500px" width="800px"
+											alt=""></a></div>
+								<div class="rating rating_3" data-rating="3">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<div class="product_content clearfix">
+									<div class="product_info">
+										<div class="product_name"><a href="categories.html">Fine arts</a></div>
+										<div class="product_price">$45.00</div>
+									</div>
+									<div class="product_options">
+										<div class="product_buy product_option add-to-cart"><img src="images/shopping-bag-white.svg"
+												alt=""></div>
+										<div class="product_fav product_option add-to-cart">+</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Product -->
+							<div class="product">
+								<div class="product_image"><a href="paintingpallets.html"><img
+											src="images/pexels-painting pallet.jpg" height="500px" width="800px"
+											alt=""></a></div>
+								<div class="rating rating_3" data-rating="3">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<div class="product_content clearfix">
+									<div class="product_info">
+										<div class="product_name"><a href="categories.html">Painting Pallets</a></div>
+										<div class="product_price">$15.00</div>
+									</div>
+									<div class="product_options">
+										<div class="product_buy product_option add-to-cart"><img src="images/shopping-bag-white.svg"
+												alt=""></div>
+										<div class="product_fav product_option add-to-cart">+</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Product -->
+							<div class="product">
+								<div class="product_image"><a href="lionsculpture.html"><img
+											src="images/pexels-lion sculpture.jpg" height="500px" width="800px"
+											alt=""></a></div>
+								<div class="rating rating_3" data-rating="3">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<div class="product_content clearfix">
+									<div class="product_info">
+										<div class="product_name"><a href="categories.html">Lion Sculpture</a></div>
+										<div class="product_price">$285.00</div>
+									</div>
+									<div class="product_options">
+										<div class="product_buy product_option add-to-cart"><img src="images/shopping-bag-white.svg"
+												alt=""></div>
+										<div class="product_fav product_option add-to-cart">+</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Product -->
+							<div class="product">
+								<div class="product_image"><a href="ladypaintings.html"><img
+											src="images/pexelslady flower painting.jpg" height="500px" width="800px"
+											alt=""></a></div>
+								<div class="rating rating_3" data-rating="3">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<div class="product_content clearfix">
+									<div class="product_info">
+										<div class="product_name"><a href="categories.html">Lady Painting</a></div>
+										<div class="product_price">$365.00</div>
+									</div>
+									<div class="product_options">
+										<div class="product_buy product_option add-to-cart"><img src="images/shopping-bag-white.svg"
+												alt=""></div>
+										<div class="product_fav product_option add-to-cart">+</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Product -->
+							<div class="product">
+								<div class="product_image"><a href="collectible.html"><img
+											src="images/pexels-collectibles1.jpg" height="500px" width="800px"
+											alt=""></a></div>
+								<div class="rating rating_3" data-rating="3">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<div class="product_content clearfix">
+									<div class="product_info">
+										<div class="product_name"><a href="categories.html">Collectibles</a></div>
+										<div class="product_price">$185.00</div>
+									</div>
+									<div class="product_options">
+										<div class="product_buy product_option add-to-cart"><img src="images/shopping-bag-white.svg"
+												alt=""></div>
+										<div class="product_fav product_option add-to-cart">+</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Product -->
+							<div class="product">
+								<div class="product_image"><a href="antiquemusic.html"><img
+											src="images/pexels-antique music player.jpg" height="500px" width="800px"
+											alt=""></a></div>
+								<div class="rating rating_3" data-rating="3">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<div class="product_content clearfix">
+									<div class="product_info">
+										<div class="product_name"><a href="categories.html">Antique Music Player</a>
+										</div>
+										<div class="product_price">$450.00</div>
+									</div>
+									<div class="product_options">
+										<div class="product_buy product_option add-to-cart"><img src="images/shopping-bag-white.svg"
+												alt=""></div>
+										<div class="product_fav product_option add-to-cart">+</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+				<script src="addtocart.js"></script>
+
+				<div class="row page_num_container">
+					<div class="col text-right">
+						<ul class="page_nums">
+							<li><a href="#">01</a></li>
+							<li class="active"><a href="#">02</a></li>
+							<li><a href="#">03</a></li>
+							<li><a href="#">04</a></li>
+							<li><a href="#">05</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Sidebar Right -->
+
+			<div class="sidebar_right clearfix">
+
+				<!-- Promo 1 -->
+				<div class="sidebar_promo_1 sidebar_promo d-flex flex-column align-items-center justify-content-center">
+					<div class="sidebar_promo_image"
+						style="background-image: url(images/pexelslady\ flower\ painting.jpg)"></div>
+					<div class="sidebar_promo_content text-center">
+						<div class="sidebar_promo_title">30%<span>off</span></div>
+						<div class="sidebar_promo_subtitle">On all paintings</div>
+						<div class="sidebar_promo_button"><a href="categories.html">check out</a></div>
+					</div>
+				</div>
+
+				<!-- Promo 2 -->
+				<div class="sidebar_promo_2 sidebar_promo">
+					<div class="sidebar_promo_image" style="background-image: url(images/pexels-tea\ table.jpg)"></div>
+					<div class="sidebar_promo_content text-center">
+						<div class="sidebar_promo_title">25%<span>off</span></div>
+						<div class="sidebar_promo_subtitle">On all furnitures</div>
+						<div class="sidebar_promo_button"><a href="furniture.html">check out</a></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Extra -->
+
+
+
+		<!-- Newsletter -->
+
+		<div class="newsletter">
+			<div class="newsletter_content">
+				<div class="newsletter_image" style="background-image:url(images/pexels-wall\ fine\ art.jpg)"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="section_title_container text-center">
+								<div class="section_subtitle">only the best</div>
+								<div class="section_title">subscribe for a 20% discount</div>
+							</div>
+						</div>
+					</div>
+					<div class="row newsletter_container">
+						<div class="col-lg-10 offset-lg-1">
+							<div class="newsletter_form_container">
+								<form action="#" onsubmit="return subscribeAlert()">
+									<input type="email" class="newsletter_input" required="required"
+										placeholder="E-mail here" id="emailInput">
+									<button type="submit" class="newsletter_button">Subscribe</button>
+								</form>
+							</div>
+
+							<script>
+								function subscribeAlert() {
+									var emailInput = document.getElementById("emailInput").value;
+
+									if (emailInput === "") {
+										return false; // Prevent form submission if the email is empty
+									} else {
+										alert("You have successfully subscribed!");
+										return true; // Allow form submission
+									}
+								}
+							</script>
+
+							<div class="newsletter_text">subscribing for the 20% discount on all collections</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+
+		<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<div class="footer_logo"><a href="index.html">Bidspirit</a></div>
+						<nav class="footer_nav">
+							<ul>
+								<li><a href="index.html">home</a></li>
+								<li><a href="furniture.html">furniture</a></li>
+								<li><a href="cart.html">Check cart</a></li>
+								<li><a href="checkout.html">Checkout</a></li>
+								<li><a href="aboutus.html">About us</a></li>
+								<li><a href="contact.html">contact us</a></li>
+								<li><a href="feedback.html">feedback</a></li>
+
+
+							</ul>
+						</nav>
+						<div class="footer_social">
+							<ul>
+								<li><a href="https://www.pinterest.com/"><i class="fa fa-pinterest"
+											aria-hidden="true"></i></a></li>
+								<li><a href="https://pk.linkedin.com/"><i class="fa fa-linkedin"
+											aria-hidden="true"></i></a></li>
+								<li><a href="https://www.instagram.com/"><i class="fa fa-instagram"
+											aria-hidden="true"></i></a></li>
+								<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"
+											aria-hidden="true"></i></a></li>
+								<li><a href="https://www.youtube.com/"><i class="fa fa-youtube"
+											aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+						<div class="copyright">
+
+							Copyright &copy;
+							<script>document.write(new Date().getFullYear());</script> All rights reserved | Made <i
+								class="fa fa-heart-o" aria-hidden="true"></i> by <a>Yusra and team</a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="styles/bootstrap4/popper.js"></script>
+	<script src="styles/bootstrap4/bootstrap.min.js"></script>
+	<script src="plugins/easing/easing.js"></script>
+	<script src="plugins/parallax-js-master/parallax.min.js"></script>
+	<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+	<script src="plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.js"></script>
+	<script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+	<script src="js/categories_custom.js"></script>
+</body>
+
+</html>
